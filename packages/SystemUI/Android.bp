@@ -85,6 +85,7 @@ android_library {
         "res-keyguard",
         "res",
         "res-hwkeys",
+        "res-blur",
     ],
     static_libs: [
         "WindowManager-Shell",
@@ -126,6 +127,7 @@ android_library {
         "smartspace-google",
         "bcsmartspace-res",
         "tensorflowlite_java",
+        "AndroidSystemBlur",
     ],
     manifest: "AndroidManifest.xml",
 
