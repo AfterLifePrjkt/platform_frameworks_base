@@ -31,7 +31,6 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.UiEventLogger;
 import com.android.systemui.R;
 import com.android.systemui.dump.DumpManager;
-import com.android.systemui.media.MediaFlags;
 import com.android.systemui.media.MediaHierarchyManager;
 import com.android.systemui.media.MediaHost;
 import com.android.systemui.plugins.qs.QSTile;
@@ -75,7 +74,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
     private final BrightnessMirrorHandler mBrightnessMirrorHandler;
     private final FooterActionsController mFooterActionsController;
 
-    private final MediaFlags mMediaFlags;
     private final boolean mUsingCollapsedLandscapeMedia;
 
     @Inject
@@ -84,7 +82,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
             @Named(QS_USING_MEDIA_PLAYER) boolean usingMediaPlayer,
             @Named(QUICK_QS_PANEL) MediaHost mediaHost,
             @Named(QS_USING_COLLAPSED_LANDSCAPE_MEDIA) boolean usingCollapsedLandscapeMedia,
-            MediaFlags mediaFlags,
             MetricsLogger metricsLogger, UiEventLogger uiEventLogger, QSLogger qsLogger,
             DumpManager dumpManager,
             QuickQSBrightnessController quickQSBrightnessController,
@@ -98,7 +95,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         mBrightnessMirrorHandler = new BrightnessMirrorHandler(mBrightnessController);
         mFooterActionsController = footerActionsController;
         mUsingCollapsedLandscapeMedia = usingCollapsedLandscapeMedia;
-        mMediaFlags = mediaFlags;
     }
 
     @Override
@@ -119,8 +115,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         int rotation = getRotation();
         boolean isLandscape = rotation == RotationUtils.ROTATION_LANDSCAPE
                 || rotation == RotationUtils.ROTATION_SEASCAPE;
-        if (mMediaFlags.useMediaSessionLayout()
-                && (!mUsingCollapsedLandscapeMedia || !isLandscape)) {
+        if (!mUsingCollapsedLandscapeMedia || !isLandscape) {
             mMediaHost.setExpansion(MediaHost.EXPANDED);
         } else {
             mMediaHost.setExpansion(MediaHost.COLLAPSED);
