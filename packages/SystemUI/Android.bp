@@ -127,7 +127,7 @@ android_library {
         "smartspace-google",
         "bcsmartspace-res",
         "tensorflowlite_java",
-        "AndroidSystemBlur",
+        "AndroidSystemBlur-platform",
     ],
     manifest: "AndroidManifest.xml",
 
