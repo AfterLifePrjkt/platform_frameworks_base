@@ -23,7 +23,8 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/app_bar" 
+        android:background="@drawable/bgsxx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -33,18 +34,19 @@
         android:theme="@style/Theme.CollapsingToolbar.Settings">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsing_toolbar" 
+            android:background="@drawable/bgsxx"
             android:layout_width="match_parent"
             android:layout_height="@dimen/settingslib_toolbar_layout_height"
             android:clipToPadding="false"
             app:forceApplySystemWindowInsetTop="true"
             app:extraMultilineHeightEnabled="true"
-            app:contentScrim="@color/settingslib_colorSurfaceHeader"
+            app:contentScrim="@drawable/bgsxx"
             app:maxLines="3"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:scrimAnimationDuration="50"
             app:scrimVisibleHeightTrigger="@dimen/settingslib_scrim_visible_height_trigger"
-            app:statusBarScrim="@null"
+            app:statusBarScrim="@drawable/bgsxx"
             app:titleCollapseMode="fade"
             app:collapsedTitleTextAppearance="@style/CollapsingToolbarTitle.Collapsed"
             app:expandedTitleTextAppearance="@style/CollapsingToolbarTitle.Expanded"
@@ -53,7 +55,8 @@
             app:toolbarId="@id/action_bar">
 
             <Toolbar
-                android:id="@+id/action_bar"
+                android:id="@+id/action_bar" 
+                android:background="@drawable/bgsxx"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="?android:attr/actionBarTheme"
