@@ -75,7 +75,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
     private View mDatePrivacyView;
     private View mDateView;
     // DateView next to clock. Visible on QQS
-    private VariableDateView mClockDateView;
     private View mSecurityHeaderView;
     private View mStatusIconsView;
     private View mContainer;
@@ -84,7 +83,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
     private View mQsWeatherHeaderView; 
 
     private View mQSCarriers;
-    private ViewGroup mClockContainer;
     private Clock mClockView;
     private Space mDatePrivacySeparator;
     private View mClockIconsSeparator;
@@ -148,7 +146,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mIconContainer = findViewById(R.id.statusIcons);
         mPrivacyChip = findViewById(R.id.privacy_chip);
         mDateView = findViewById(R.id.date);
-        mClockDateView = findViewById(R.id.date_clock);
         mDateView.setOnClickListener(this);
         mQsWeatherView = findViewById(R.id.qs_weather_view);
         mQsWeatherHeaderView = findViewById(R.id.weather_view_header);
@@ -159,7 +156,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mDateContainer = findViewById(R.id.date_container);
         mPrivacyContainer = findViewById(R.id.privacy_container);
 
-        mClockContainer = findViewById(R.id.clock_container);
         mClockView = findViewById(R.id.clock);
         mClockView.setQsHeader();
         mClockView.setOnClickListener(this);
@@ -408,8 +404,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
                         if (!mIsSingleCarrier) {
                             mIconContainer.addIgnoredSlots(mRssiIgnoredSlots);
                         }
-                        // Make it gone so there's enough room for carrier names
-                        mClockDateView.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -559,13 +553,7 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mClockIconsSeparator.setVisibility(visible ? View.VISIBLE : View.GONE);
         mQSCarriers.setVisibility(visible ? View.GONE : View.VISIBLE);
 
-        LinearLayout.LayoutParams lp =
-                (LinearLayout.LayoutParams) mClockContainer.getLayoutParams();
-        lp.width = visible ? 0 : WRAP_CONTENT;
-        lp.weight = visible ? 1f : 0f;
-        mClockContainer.setLayoutParams(lp);
-
-        lp = (LinearLayout.LayoutParams) mRightLayout.getLayoutParams();
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mRightLayout.getLayoutParams();
         lp.width = visible ? 0 : WRAP_CONTENT;
         lp.weight = visible ? 1f : 0f;
         mRightLayout.setLayoutParams(lp);
