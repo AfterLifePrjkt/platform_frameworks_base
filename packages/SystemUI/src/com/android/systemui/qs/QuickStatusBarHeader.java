@@ -79,8 +79,7 @@ public class QuickStatusBarHeader extends FrameLayout implements
     private View mStatusIconsView;
     private View mContainer;
 
-    private View mQsWeatherView;
-    private View mQsWeatherHeaderView; 
+    private View mQsWeatherHeaderView;
 
     private View mQSCarriers;
     private Clock mClockView;
@@ -147,7 +146,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mPrivacyChip = findViewById(R.id.privacy_chip);
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
-        mQsWeatherView = findViewById(R.id.qs_weather_view);
         mQsWeatherHeaderView = findViewById(R.id.weather_view_header);
         mClockDateView.setVisibility(View.GONE);
         mSecurityHeaderView = findViewById(R.id.header_text_container);
@@ -395,7 +393,6 @@ public class QuickStatusBarHeader extends FrameLayout implements
 //                .addFloat(mClockDateView, "alpha", 1, 0, 0)
                 .addFloat(mClockView, "alpha", 0, 1)
                 .addFloat(mQsWeatherHeaderView, "alpha", 0, 0, 1)
-                .addFloat(mQsWeatherView, "alpha", 1, 0, 0)
                 .addFloat(mQSCarriers, "alpha", 0, 1)
                 .setListener(new TouchAnimator.ListenerAdapter() {
                     @Override
