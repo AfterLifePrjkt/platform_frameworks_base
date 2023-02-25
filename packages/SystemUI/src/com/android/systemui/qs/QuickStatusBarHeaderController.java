@@ -57,6 +57,7 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
     private final StatusBarContentInsetsProvider mInsetsProvider;
 
     private final VariableDateViewController mVariableDateViewControllerDateView;
+    private final VariableDateViewController mVariableDateViewControllerClockDateView;
     private final HeaderPrivacyIconsController mPrivacyIconsController;
 
     private boolean mListening;
@@ -90,6 +91,9 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mIconContainer = mView.findViewById(R.id.statusIcons);
         mVariableDateViewControllerDateView = variableDateViewControllerFactory.create(
                 mView.requireViewById(R.id.date)
+        );
+        mVariableDateViewControllerClockDateView = variableDateViewControllerFactory.create(
+                mView.requireViewById(R.id.date_clock)
         );
 
         mIconManager = new StatusBarIconController.TintedIconManager(mIconContainer, featureFlags);
@@ -133,6 +137,7 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
         mDemoModeController.addCallback(mDemoModeReceiver);
 
         mVariableDateViewControllerDateView.init();
+        mVariableDateViewControllerClockDateView.init();
     }
 
     @Override
