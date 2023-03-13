@@ -60,6 +60,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
                 if (newMaxTiles != mView.getNumQuickTiles()) {
                     setMaxTiles(newMaxTiles);
                 }
+                mView.updateColumns();
                 updateBrightnessMirror();
             };
 
@@ -125,6 +126,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         });
 
         mView.addOnConfigurationChangedListener(mOnConfigurationChangedListener);
+        mView.updateColumns();
     }
 
     @Override
@@ -147,6 +149,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
 
     private void setMaxTiles(int parseNumTiles) {
         mView.setMaxTiles(parseNumTiles);
+        mView.updateColumns();
         setTiles();
     }
 
