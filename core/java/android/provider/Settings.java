@@ -6171,6 +6171,7 @@ public final class Settings {
          */
         public static final String QS_HEADER_CLOCK_SIZE = "qs_header_clock_size";
 
+        /**
          * Restyled reTicker
          * @hide
          */
