@@ -16,7 +16,14 @@
   -->
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="24dp" />
-    <solid android:color="?android:attr/colorAccent" />
-    <size android:width="48dp" android:height="48dp" />
+    <corners
+        android:radius="24.0dip" />
+    <gradient
+                android:startColor="@color/afl_pref_card_color_gradient_start"
+                android:endColor="?android:colorAccent"
+                android:angle="0.0"
+                android:type="linear" />
+    <size
+        android:height="48.0dip"
+        android:width="48.0dip" />
 </shape>
