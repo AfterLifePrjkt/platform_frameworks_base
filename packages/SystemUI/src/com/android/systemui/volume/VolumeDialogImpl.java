@@ -430,6 +430,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         // The ringer and rows container have extra height at the left to fit the expanded ringer
         // drawer. This area should not be touchable unless the ringer drawer is open or expandable
         // rows are not visible.
+        // are multiple rows they are touchable.
         // The invisible expandable rows reserve space if the panel is not expanded, this space
         // needs to be touchable.
         if (view == mTopContainer) {
@@ -440,7 +441,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 if (getRingerDrawerOpenExtraSize() > getVisibleRowsExtraSize()) {
                     xExtraSize = getRingerDrawerOpenExtraSize() - getVisibleRowsExtraSize();
                 }
-            } else if (!mExpanded) {
+                } else if (!mExpanded) {
                 if ((getVisibleRowsExtraSize() + getExpandableRowsExtraSize())
                         > getRingerDrawerOpenExtraSize()) {
                     xExtraSize = (getVisibleRowsExtraSize() + getExpandableRowsExtraSize())
@@ -2394,6 +2395,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         final Rect bounds = mRingerAndDrawerContainerBackground.copyBounds();
+        if (mVolumePanelOnLeft) {
             bounds.right = (int) ((mDialogCornerRadius / 2) + mRingerDrawerItemSize
                     + (1f - mRingerDrawerClosedAmount) * getRingerDrawerOpenExtraSize());
         } else {
@@ -2726,16 +2728,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         @Override
         public void onClick(View view) {
 
-            if (!isLandscape()) {
-                mRingerDrawerNewSelectionBg.setTranslationY(
-                        getTranslationInDrawerForRingerMode(mState.ringerModeInternal));
-            } else {
                 mRingerDrawerNewSelectionBg.setTranslationX(
                         getTranslationInDrawerForRingerMode(mState.ringerModeInternal)
                         - (mVolumePanelOnLeft
                         ? 2 * mRingerDrawerItemSize
                         : 0));
-            }
 
             setRingerMode(mClickedRingerMode);
 
