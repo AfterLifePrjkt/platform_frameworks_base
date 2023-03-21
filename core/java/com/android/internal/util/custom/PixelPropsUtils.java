@@ -33,7 +33,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
     private static final String DEVICE = "ro.aex.device";
 
-    private static final Map<String, Object> propsToChangePixel6;
+    private static final Map<String, Object> propsToChangePixel7Pro;
 
     private static final Map<String, Object> propsToChangePixel5;
     private static final String[] packagesToChangePixel5 = {
@@ -93,20 +93,20 @@ public class PixelPropsUtils {
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
-        propsToChangePixel6 = new HashMap<>();
-        propsToChangePixel6.put("BRAND", "google");
-        propsToChangePixel6.put("MANUFACTURER", "Google");
-        propsToChangePixel6.put("DEVICE", "raven");
-        propsToChangePixel6.put("PRODUCT", "raven");
-        propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:13/TQ1A.230105.002/9325679:user/release-keys");
+        propsToChangePixel7Pro = new HashMap<>();
+        propsToChangePixel7Pro.put("BRAND", "google");
+        propsToChangePixel7Pro.put("MANUFACTURER", "Google");
+        propsToChangePixel7Pro.put("DEVICE", "cheetah");
+        propsToChangePixel7Pro.put("PRODUCT", "cheetah");
+        propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
+        propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ1A.230105.001/9292298:user/release-keys");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230305.008.C1/9619669:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -127,7 +127,7 @@ public class PixelPropsUtils {
         }
         if ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
                || Arrays.asList(extraPackagesToChange).contains(packageName)) {
-            Map<String, Object> propsToChange = propsToChangePixel6;
+            Map<String, Object> propsToChange = propsToChangePixel7Pro;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
                 propsToChange = propsToChangePixel5;
