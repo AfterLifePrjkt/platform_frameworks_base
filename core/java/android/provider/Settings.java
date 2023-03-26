@@ -11374,7 +11374,6 @@ public final class Settings {
         /**
          * @hide
          */
-        @Readable
         public static final String SHOW_COMBINED_STATUS_BAR_SIGNAL_ICONS = "show_combined_status_bar_signal_icons";
 
         /**
