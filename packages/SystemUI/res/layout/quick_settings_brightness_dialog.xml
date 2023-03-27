@@ -14,36 +14,39 @@
      limitations under the License.
 -->
 <com.android.systemui.settings.brightness.BrightnessSliderView
-    android:layout_gravity="center"
-    android:orientation="horizontal"
-    android:id="@+id/brightness_slider"
-    android:layout_width="fill_parent"
-    android:layout_height="@dimen/brightness_mirror_height"
-    android:contentDescription="@string/accessibility_brightness"
-    android:importantForAccessibility="no"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.systemui.settings.brightness.ToggleSeekBar
-        android:layout_gravity="center_vertical"
-        android:id="@+id/slider"
-        android:background="@null"
-        android:layout_width="0.0dip"
-        android:layout_height="wrap_content"
-        android:progressDrawable="@drawable/brightness_progress_drawable"
-        android:minHeight="48.0dip"
-        android:thumb="@null"
-        android:layout_weight="1.0"
-        android:paddingStart="5.0dip"
-        android:paddingEnd="5.0dip"
-        android:splitTrack="false" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/brightness_slider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/brightness_mirror_height"
+        android:layout_gravity="center"
+        android:contentDescription="@string/accessibility_brightness"
+        android:orientation="horizontal"
+        android:importantForAccessibility="no" >
+
+        <com.android.systemui.settings.brightness.ToggleSeekBar
+            android:id="@+id/slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:thumb="@null"
+            android:background="@null"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progressDrawable="@drawable/brightness_progress_drawable"
+            android:splitTrack="false"
+        />
+
     <ImageButton
-        android:layout_gravity="center_vertical"
         android:id="@+id/brightness_icon"
-        android:background="@drawable/brightness_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/brightness_bg"
         android:src="@drawable/ic_qs_brightness_auto_off_new"
-        android:tint="?android:textColorPrimaryInverse"
+        android:tint="?android:attr/textColorPrimaryInverse"
         android:contentDescription="@null"
-        android:layout_marginStart="15.0dip"
-        android:layout_marginEnd="8.0dip" />
+        android:layout_marginStart="20.0dip" />
+
 </com.android.systemui.settings.brightness.BrightnessSliderView>
