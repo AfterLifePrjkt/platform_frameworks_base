@@ -150,6 +150,7 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mClockDateView = findViewById(R.id.date_clock);
         mDateView.setOnClickListener(this);
         mQsWeatherHeaderView = findViewById(R.id.weather_view_header);
+        mQsWeatherHeaderView.setOnLongClickListener(this);
         mClockDateView.setVisibility(View.GONE);
         mSecurityHeaderView = findViewById(R.id.header_text_container);
         mClockIconsSeparator = findViewById(R.id.separator);
@@ -260,6 +261,13 @@ public class QuickStatusBarHeader extends FrameLayout implements
             nIntent.setClassName("com.android.settings",
                     "com.android.settings.Settings$DateTimeSettingsActivity");
             mActivityStarter.startActivity(nIntent, true /* dismissShade */);
+            mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+            return true;
+        } else if (v == mQsWeatherHeaderView) {
+            Intent wIntent = new Intent(Intent.ACTION_MAIN);
+            wIntent.setClassName("org.omnirom.omnijaws",
+                    "org.omnirom.omnijaws.SettingsActivity");
+            mActivityStarter.startActivity(wIntent, true /* dismissShade */);
             mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
             return true;
         }
