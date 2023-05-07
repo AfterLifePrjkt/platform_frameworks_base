@@ -105,4 +105,7 @@
 
     <!-- QS Header height full -->
     <dimen name="qs_header_height_full">200dp</dimen>
+
+    <!-- OmniWeather image size -->
+    <dimen name="current_weather_image_size">42dp</dimen>
 </resources>
