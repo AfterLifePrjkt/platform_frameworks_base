@@ -89,8 +89,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     private View mStatusIconsView;
     private View mContainer;
 
-    private View mQsWeatherHeaderView;
-
     private ViewGroup mClockContainer;
     private Clock mClockView;
     private Space mDatePrivacySeparator;
@@ -158,8 +156,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         mDateView = findViewById(R.id.date);
         mClockDateView = findViewById(R.id.date_clock);
         mDateView.setOnClickListener(this);
-        mQsWeatherHeaderView = findViewById(R.id.weather_view_header);
-        mQsWeatherHeaderView.setOnLongClickListener(this);
         mClockDateView.setVisibility(View.GONE);
         mSecurityHeaderView = findViewById(R.id.header_text_container);
         mClockIconsSeparator = findViewById(R.id.separator);
@@ -272,13 +268,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             nIntent.setClassName("com.android.settings",
                     "com.android.settings.Settings$DateTimeSettingsActivity");
             mActivityStarter.startActivity(nIntent, true /* dismissShade */);
-            mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
-            return true;
-        } else if (v == mQsWeatherHeaderView) {
-            Intent wIntent = new Intent(Intent.ACTION_MAIN);
-            wIntent.setClassName("org.omnirom.omnijaws",
-                    "org.omnirom.omnijaws.SettingsActivity");
-            mActivityStarter.startActivity(wIntent, true /* dismissShade */);
             mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
             return true;
         }
@@ -436,7 +425,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 //                .addFloat(mDateView, "alpha", 0, 0, 1)
 //                .addFloat(mClockDateView, "alpha", 1, 0, 0)
                 .addFloat(mClockView, "alpha", 0, 1)
-                .addFloat(mQsWeatherHeaderView, "alpha", 0, 0, 1)
                 .setListener(new TouchAnimator.ListenerAdapter() {
                     @Override
                     public void onAnimationAtEnd() {
