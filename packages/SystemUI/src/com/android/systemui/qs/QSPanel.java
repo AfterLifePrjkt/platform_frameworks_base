@@ -208,9 +208,8 @@ public class QSPanel extends LinearLayout implements Tunable {
                         .getDimensionPixelSize(R.dimen.qs_brightness_margin_top);
             } else {
                 lp.topMargin = mContext.getResources()
-                        .getDimensionPixelSize(mUsingHorizontalLayout ? R.dimen.qs_brightness_margin_top
-                                : R.dimen.quick_qs_brightness_margin_top);
-                lp.bottomMargin = mUsingHorizontalLayout ? mContext.getResources()
+                        .getDimensionPixelSize(R.dimen.qs_brightness_margin_top);
+                lp.bottomMargin = mContext.getResources()
                         .getDimensionPixelSize(R.dimen.qs_brightness_margin_bottom);
             }
             mBrightnessView.setLayoutParams(lp);

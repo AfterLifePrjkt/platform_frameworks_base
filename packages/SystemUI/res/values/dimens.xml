@@ -1193,7 +1193,7 @@
     <!-- rounded_slider_corner_radius - rounded_slider_track_corner_radius -->
     <dimen name="rounded_slider_track_inset">5dp</dimen>
     <dimen name="rounded_slider_track_inset_start">2dp</dimen>
-    <dimen name="rounded_slider_track_width">50dp</dimen>
+    <dimen name="rounded_slider_track_width">10dp</dimen>
     <!-- rounded_slider_track_width / 2 -->
     <dimen name="rounded_slider_track_corner_radius">50dp</dimen>
     <dimen name="rounded_slider_background_padding">8dp</dimen>
