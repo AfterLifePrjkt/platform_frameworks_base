@@ -26,12 +26,12 @@
     android:focusable="true"
     android:theme="@style/QSHeaderTheme">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/clock_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_gravity="center_vertical|start"
         android:gravity="center_vertical|start"
         >
@@ -42,6 +42,7 @@
             android:layout_height="match_parent"
             android:minHeight="@dimen/qs_header_row_min_height"
             android:gravity="center_vertical|start"
+            android:layout_weight="1"
             android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
             android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
             android:singleLine="true"
@@ -53,12 +54,14 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/status_bar_left_clock_end_padding"
             android:gravity="center_vertical|start"
+            android:paddingTop="40dp"
+            android:layout_weight="1"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.QS.Status"
             systemui:longDatePattern="@string/abbrev_wday_month_day_no_year_alarm"
             systemui:shortDatePattern="@string/abbrev_month_day_no_year"
         />
-    </LinearLayout>
+    </FrameLayout>
     
     <View
         android:id="@+id/separator"

@@ -18,5 +18,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners android:radius="12dp" />
     <solid android:color="@color/brightness_tiles_bg" />
+    <stroke android:width="2dp" android:color="?attr/offStateColor" />
     <size android:width="48dp" android:height="48dp" />
 </shape>
