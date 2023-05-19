@@ -6203,6 +6203,11 @@ public final class Settings {
         public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
 
         /**
+         * @hide
+         */
+        public static final String MAX_VISIBLE_NOTIFICATION_ICONS = "max_visible_notification_icons";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6343,6 +6348,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(VOLUME_PANEL_ON_LEFT);
             PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
+            PRIVATE_SETTINGS.add(MAX_VISIBLE_NOTIFICATION_ICONS);
         }
 
         /**
