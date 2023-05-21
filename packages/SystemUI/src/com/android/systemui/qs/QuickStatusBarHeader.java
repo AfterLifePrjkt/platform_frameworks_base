@@ -261,6 +261,7 @@ public class QuickStatusBarHeader extends FrameLayout implements
     }
 
     private void setDatePrivacyContainersWidth(boolean landscape) {
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mPrivacyContainer.getLayoutParams();
         lp.width = landscape ? WRAP_CONTENT : 0;
         lp.weight = landscape ? 0f : 1f;
         mPrivacyContainer.setLayoutParams(lp);
