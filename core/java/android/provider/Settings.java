@@ -6228,6 +6228,26 @@ public final class Settings {
         public static final String MAX_VISIBLE_NOTIFICATION_ICONS = "max_visible_notification_icons";
 
         /**
+         * @hide
+         */
+        public static final String SMART_CHARGING = "smart_charging";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESET_STATS = "smart_charging_reset_stats";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
