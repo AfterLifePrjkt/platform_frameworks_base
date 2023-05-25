@@ -371,6 +371,8 @@
     <style name="Theme.SystemUI.Dialog.GlobalActions" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen">
         <item name="android:colorError">@*android:color/error_color_material_dark</item>
         <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBlurBehindRadius">@dimen/max_window_blur_radius</item>
     </style>
 
     <style name="Theme.SystemUI.Dialog.GlobalActionsLite" parent="Theme.SystemUI.Dialog">
@@ -378,6 +380,16 @@
         <!-- that would otherwise be intercepted by the Shade. -->
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- Empty enter/exit animation, we will animate in-window. Note that the implementation -->
+        <!-- of ActionsDialogLite relies on this to be null (resource=0) to detect when to run -->
+        <!-- the in-window animation. -->
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBlurBehindRadius">@dimen/max_window_blur_radius</item>
+        <item name="android:alpha">0.97</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
     </style>
 
     <style name="QSBorderlessButton">
