@@ -6233,6 +6233,7 @@ public final class Settings {
          */
         public static final String CUSTOM_TRANSITIONS_KEY = "custom_transitions_page_tile";
 
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
