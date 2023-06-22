@@ -109,8 +109,8 @@ public class ThemeOverlayApplier implements Dumpable {
             "android.theme.customization.wifi_icon";
 
     @VisibleForTesting
-    static final String OVERLAY_CATEGORY_QS_PANEL =
-            "android.theme.customization.qs_panel";
+    static final String OVERLAY_QS_PANEL =
+            "com.android.systemui.qs_panel";
     static final String OVERLAY_BRIGHTNESS_SLIDER_FILLED =
             "com.android.systemui.brightness_slider.filled";
     static final String OVERLAY_BRIGHTNESS_SLIDER_THIN =
@@ -148,6 +148,11 @@ public class ThemeOverlayApplier implements Dumpable {
             "",
             OVERLAY_BRIGHTNESS_SLIDER_FILLED,
             OVERLAY_BRIGHTNESS_SLIDER_THIN);
+
+     /* Qs panel TwoTone overlays */
+    static final List<String> QS_PANEL_OVERLAYS = Lists.newArrayList(
+            "",
+            OVERLAY_QS_PANEL);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
@@ -287,6 +292,21 @@ public class ThemeOverlayApplier implements Dumpable {
                 }
             } catch (SecurityException | IllegalStateException e) {
                 Log.e(TAG, "Failed to set brightness slider style", e);
+            }
+        });
+    }
+
+    /* Set qs panel styles */
+    public void setqsPanelStyle(int qsPanelStyle) {
+        mBgExecutor.execute(() -> {
+            try {
+                for (int i = 1; i < QS_PANEL_OVERLAYS.size(); i++) {
+                    String overlay = QS_PANEL_OVERLAYS.get(i);
+                    boolean enable = (i == qsPanelStyle);
+                    mOverlayManager.setEnabled(overlay, enable, UserHandle.SYSTEM);
+                }
+            } catch (SecurityException | IllegalStateException e) {
+                Log.e(TAG, "Failed to set Qs Panel Style", e);
             }
         });
     }
