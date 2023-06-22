@@ -11421,6 +11421,12 @@ public final class Settings {
         public static final String SYSTEM_BLACK_THEME = "system_black_theme";
 
         /**
+         * Whether to turn on split shade
+         * @hide
+         */
+        public static final String QS_SPLIT_SHADE = "qs_split_shade";
+
+        /**
          *  Toggle the media squiggle animation
          *  0 = 0ff, 1 = on
          * @hide
