@@ -165,6 +165,7 @@ public class ThemeOverlayApplier implements Dumpable {
     private final String mThemePickerPackage;
 
     private boolean mIsBlackTheme;
+    private boolean mIsSplitShade;
 
     public ThemeOverlayApplier(OverlayManager overlayManager,
             Executor bgExecutor,
@@ -280,6 +281,21 @@ public class ThemeOverlayApplier implements Dumpable {
             }
         });
     }
+    
+    public void setIsSplitShade(boolean split) {
+        mIsSplitShade = split;
+    }
+
+    public void applySplitShade(boolean enable) {
+        mBgExecutor.execute(() -> {
+            try {
+                mOverlayManager.setEnabled("com.android.system.qs.split_shade",
+                        enable, UserHandle.SYSTEM);
+            } catch (SecurityException | IllegalStateException e) {
+                Log.e(TAG, "setEnabled failed", e);
+            }
+        });
+    }
 
     /* Set brightness slider styles */
     public void setBrightnessSliderStyle(int brightnessSliderStyle) {
@@ -327,6 +343,10 @@ public class ThemeOverlayApplier implements Dumpable {
 
         if (OVERLAY_CATEGORY_SYSTEM_PALETTE.equals(category)) {
             enabled = enabled && !mIsBlackTheme;
+        }
+        
+        if (OVERLAY_CATEGORY_SYSTEM_PALETTE.equals(category)) {
+            enabled = enabled && !mIsSplitShade;
         }
 
         OverlayInfo overlayInfo = mOverlayManager.getOverlayInfo(identifier,
