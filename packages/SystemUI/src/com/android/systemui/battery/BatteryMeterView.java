@@ -163,12 +163,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mCircleDrawable = new CircleBatteryDrawable(context, frameColor);
         mFullCircleDrawable = new FullCircleBatteryDrawable(context, frameColor);
         mLandscapeBatteryA = new LandscapeBatteryA(context, frameColor);
-        mLandscapeBatteryC = new LandscapeBatteryB(context, frameColor);
-        mLandscapeBatteryH = new LandscapeBatteryC(context, frameColor);
-        mLandscapeBatteryI = new LandscapeBatteryD(context, frameColor);
-        mLandscapeBatteryK = new LandscapeBatteryE(context, frameColor);
-        mLandscapeBatteryL = new LandscapeBatteryF(context, frameColor);
-        mLandscapeBatteryM = new LandscapeBatteryG(context, frameColor);
+        mLandscapeBatteryC = new LandscapeBatteryC(context, frameColor);
+        mLandscapeBatteryH = new LandscapeBatteryH(context, frameColor);
+        mLandscapeBatteryI = new LandscapeBatteryI(context, frameColor);
+        mLandscapeBatteryK = new LandscapeBatteryK(context, frameColor);
+        mLandscapeBatteryL = new LandscapeBatteryL(context, frameColor);
+        mLandscapeBatteryM = new LandscapeBatteryM(context, frameColor);
         atts.recycle();
 
         setupLayoutTransition();
@@ -561,27 +561,27 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
             case BATTERY_STYLE_LANDSCAPEC:
-                mBatteryIconView.setImageDrawable(mLandscapeBatteryB);
-                mBatteryIconView.setVisibility(View.VISIBLE);
-                break;
-            case BATTERY_STYLE_LANDSCAPEH:
                 mBatteryIconView.setImageDrawable(mLandscapeBatteryC);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
+            case BATTERY_STYLE_LANDSCAPEH:
+                mBatteryIconView.setImageDrawable(mLandscapeBatteryH);
+                mBatteryIconView.setVisibility(View.VISIBLE);
+                break;
             case BATTERY_STYLE_LANDSCAPEI:
-                mBatteryIconView.setImageDrawable(mLandscapeBatteryD);
+                mBatteryIconView.setImageDrawable(mLandscapeBatteryI);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
             case BATTERY_STYLE_LANDSCAPEK:
-                mBatteryIconView.setImageDrawable(mLandscapeBatteryE);
+                mBatteryIconView.setImageDrawable(mLandscapeBatteryK);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
             case BATTERY_STYLE_LANDSCAPEL:
-                mBatteryIconView.setImageDrawable(mLandscapeBatteryF);
+                mBatteryIconView.setImageDrawable(mLandscapeBatteryL);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
             case BATTERY_STYLE_LANDSCAPEM:
-                mBatteryIconView.setImageDrawable(mLandscapeBatteryG);
+                mBatteryIconView.setImageDrawable(mLandscapeBatteryM);
                 mBatteryIconView.setVisibility(View.VISIBLE);
                 break;
         }
