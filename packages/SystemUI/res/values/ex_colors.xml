@@ -17,4 +17,7 @@
 <resources>
     <color name="reticker_background_color">@android:color/system_neutral1_900</color>
     <color name="volume_row_bg">@android:color/system_accent2_200</color>
+
+    <!-- QS Header Images -->
+    <color name="puteh_ireng">#ffffffff</color>
 </resources>
