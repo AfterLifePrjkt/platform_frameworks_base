@@ -100,9 +100,23 @@
     <dimen name="dismiss_all_button_margin_bottom">48dp</dimen>
     <dimen name="dismiss_all_fab_src_size">24dp</dimen>
 
-    <!-- battery Styles -->
-    <dimen name="status_bar_battery_icon_height_landscape_a_o">22.0dip</dimen>
-    <dimen name="status_bar_battery_icon_width_landscape_a_o">25.0dip</dimen>
+    <!-- Battery Icon Height -->
+    <dimen name="status_bar_battery_icon_height_landscape_a">15.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_c">14.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_h">16.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_i">14.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_k">18.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_l">15.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_m">16.0dip</dimen>
+
+    <!-- Battery Icon Width -->
+    <dimen name="status_bar_battery_icon_width_landscape_a">25.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_c">24.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_h">28.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_i">25.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_k">26.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_l">27.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_m">28.0dip</dimen>
 
     <!-- QS header image -->
     <dimen name="qs_header_image_offset">0.01dp</dimen>
@@ -117,7 +131,7 @@
     <dimen name="ancient_qs_total">150dp</dimen>
     <dimen name="quick_qs_system_ancient">30dp</dimen>
     <dimen name="ancient_qs_zero">0dp</dimen>
-    <dimen name="side_img">0dp</dimen>
+    <dimen name="side_img">-15dp</dimen>
     <dimen name="ancient_header_small">80dp</dimen>
     <dimen name="ancient_header_big">200dp</dimen>
 </resources>
