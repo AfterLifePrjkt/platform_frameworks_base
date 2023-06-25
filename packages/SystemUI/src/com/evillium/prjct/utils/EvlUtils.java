@@ -33,11 +33,6 @@ public class EvlUtils {
     public static final int transColor = 0x00FFFFFF;
     public static final int transValue = 24;
 
-    public static Bitmap resizeMaxDeviceSize(Context context, Drawable image) {
-        Bitmap i2b = ((BitmapDrawable) image).getBitmap();
-        return resizeMaxDeviceSize(context, i2b);
-    }
-
     public static int getValueInDp(int value) {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value,
                                                     Resources.getSystem().getDisplayMetrics()));

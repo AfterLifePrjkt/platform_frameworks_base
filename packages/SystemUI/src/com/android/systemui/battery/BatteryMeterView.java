@@ -32,6 +32,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -452,7 +453,6 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver ,Tune
         mLandscapeBatteryA.setCustomChargingIcon(mChargingIconSwitch);
         mLandscapeBatteryC.setCustomChargingIcon(mChargingIconSwitch);
         mLandscapeBatteryH.setCustomChargingIcon(mChargingIconSwitch);
-        mLandscapeBatteryI.setCustomChargingIcon(mChargingIconSwitch);
         mLandscapeBatteryK.setCustomChargingIcon(mChargingIconSwitch);
         mLandscapeBatteryL.setCustomChargingIcon(mChargingIconSwitch);
         mLandscapeBatteryM.setCustomChargingIcon(mChargingIconSwitch);
@@ -593,15 +593,6 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver ,Tune
             mCustomPowerSaveColor,
             mCustomPowerSaveFillColor);
 
-    }
-
-    private void updateSettings() {
-        updateCustomizeBatteryDrawable();
-        updateChargingIconView();
-        updateRotationLandscape();
-        updateShowPercent();
-        scaleBatteryMeterViews();
-        updateFlipper();
     }
 
     void onBatteryLevelChanged(int level, boolean pluggedIn) {
@@ -992,7 +983,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver ,Tune
                     (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
                 scaledLayoutParams.setMargins(0, 0, 0, defaultMarginBottom);
                 mBatteryIconView.setLayoutParams(scaledLayoutParams);
-			} else if (mBatteryStyle == BATTERY_STYLE_LANDSCAPE || BATTERY_STYLE_RLANDSCAPE) {
+			} else if (mBatteryStyle == BATTERY_STYLE_LANDSCAPE || mBatteryStyle == BATTERY_STYLE_RLANDSCAPE) {
                 int batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape);
                 int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape);
                 LinearLayout.LayoutParams scaledLayoutParams = new LinearLayout.LayoutParams(
@@ -1013,8 +1004,9 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver ,Tune
                     (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
                 scaledLayoutParams.setMargins(0, 0, 0, defaultMarginBottom);
                 mBatteryIconView.setLayoutParams(scaledLayoutParams);
-            }
         }
+    }
+}
 
     public void updateBatteryStyle() {
         switch (mBatteryStyle) {
@@ -1147,6 +1139,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver ,Tune
         updateSbBatteryStyle();
         updateSbShowBatteryPercent();
         updateQsBatteryEstimate();
+        updateCustomizeBatteryDrawable();
+        updateChargingIconView();
+        updateRotationLandscape();
+        updateShowPercent();
+        scaleBatteryMeterViews();
+        updateFlipper();
     }
 
     public void updateQsBatteryEstimate() {
