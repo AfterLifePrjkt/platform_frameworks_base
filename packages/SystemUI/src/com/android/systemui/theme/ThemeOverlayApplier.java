@@ -111,11 +111,6 @@ public class ThemeOverlayApplier implements Dumpable {
     @VisibleForTesting
     static final String OVERLAY_QS_PANEL =
             "com.android.systemui.qs_panel";
-    static final String OVERLAY_BRIGHTNESS_SLIDER_FILLED =
-            "com.android.systemui.brightness_slider.filled";
-    static final String OVERLAY_BRIGHTNESS_SLIDER_THIN =
-            "com.android.systemui.brightness_slider.thin";
-
     /*
      * All theme customization categories used by the system, in order that they should be applied,
      * starts with launcher and grouped by target package.
@@ -142,12 +137,6 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_SHAPE,
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI);
-
-     /* Brightness slider overlays */
-    static final List<String> BRIGHTNESS_SLIDER_OVERLAYS = Lists.newArrayList(
-            "",
-            OVERLAY_BRIGHTNESS_SLIDER_FILLED,
-            OVERLAY_BRIGHTNESS_SLIDER_THIN);
 
      /* Qs panel TwoTone overlays */
     static final List<String> QS_PANEL_OVERLAYS = Lists.newArrayList(
@@ -277,21 +266,6 @@ public class ThemeOverlayApplier implements Dumpable {
                         enable, UserHandle.SYSTEM);
             } catch (SecurityException | IllegalStateException e) {
                 Log.e(TAG, "setEnabled failed", e);
-            }
-        });
-    }
-
-    /* Set brightness slider styles */
-    public void setBrightnessSliderStyle(int brightnessSliderStyle) {
-        mBgExecutor.execute(() -> {
-            try {
-                for (int i = 1; i < BRIGHTNESS_SLIDER_OVERLAYS.size(); i++) {
-                    String overlay = BRIGHTNESS_SLIDER_OVERLAYS.get(i);
-                    boolean enable = (i == brightnessSliderStyle);
-                    mOverlayManager.setEnabled(overlay, enable, UserHandle.SYSTEM);
-                }
-            } catch (SecurityException | IllegalStateException e) {
-                Log.e(TAG, "Failed to set brightness slider style", e);
             }
         });
     }
