@@ -22,7 +22,7 @@
     android:importantForAccessibility="no"
     android:layout_gravity="center_horizontal">
 
-    <com.android.systemui.util.DelayableMarqueeTextView
+    <TextView
         android:id="@+id/tile_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         android:importantForAccessibility="no"
         android:textAppearance="@style/TextAppearance.QS.TileLabel"/>
 
-    <com.android.systemui.util.DelayableMarqueeTextView
+    <TextView
         android:id="@+id/app_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -582,26 +582,27 @@ open class QSTileViewImpl @JvmOverloads constructor(
                         (colorBackgroundDrawable as GradientDrawable).cornerRadius, 
                         getCornerRadiusForState(state.state)
                 )
+                }
                 singleAnimator.setValues(
                         colorValuesHolder(
-                                BACKGROUND_NAME,
-                                paintColor,
-                                getBackgroundColorForState(state.state, state.disabledByPolicy)
-                        ),
-                        colorValuesHolder(
-                                LABEL_NAME,
-                                label.currentTextColor,
-                                getLabelColorForState(state.state, state.disabledByPolicy)
-                        ),
-                        colorValuesHolder(
-                                SECONDARY_LABEL_NAME,
-                                secondaryLabel.currentTextColor,
-                                getSecondaryLabelColorForState(state.state, state.disabledByPolicy)
-                        ),
-                        colorValuesHolder(
-                                CHEVRON_NAME,
-                                chevronView.imageTintList?.defaultColor ?: 0,
-                                getChevronColorForState(state.state, state.disabledByPolicy)
+                        BACKGROUND_NAME,
+                        paintColor,
+                        getBackgroundColorForState(state.state)
+                    ),
+                    colorValuesHolder(
+                        LABEL_NAME,
+                        label.currentTextColor,
+                        getLabelColorForState(state.state)
+                    ),
+                    colorValuesHolder(
+                        SECONDARY_LABEL_NAME,
+                        secondaryLabel.currentTextColor,
+                        getSecondaryLabelColorForState(state.state)
+                    ),
+                    colorValuesHolder(
+                        CHEVRON_NAME,
+                        chevronView.imageTintList?.defaultColor ?: 0,
+                        getChevronColorForState(state.state)
                         )
                     )
                 if (isRoundQS()) {
@@ -611,10 +612,10 @@ open class QSTileViewImpl @JvmOverloads constructor(
                 }
             } else {
                 setAllColors(
-                    getBackgroundColorForState(state.state, state.disabledByPolicy),
-                    getLabelColorForState(state.state, state.disabledByPolicy),
-                    getSecondaryLabelColorForState(state.state, state.disabledByPolicy),
-                    getChevronColorForState(state.state, state.disabledByPolicy)
+                    getBackgroundColorForState(state.state),
+                    getLabelColorForState(state.state),
+                    getSecondaryLabelColorForState(state.state),
+                    getChevronColorForState(state.state)
                 )
                 if (isRoundQS()) {
                     setCornerRadius(getCornerRadiusForState(state.state))
