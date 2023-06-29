@@ -14,6 +14,8 @@
 
 package com.android.systemui.qs;
 
+import static com.android.systemui.util.qs.QSStyleUtils.isRoundQS;
+
 import static com.android.systemui.qs.dagger.QSFragmentModule.QQS_FOOTER;
 import static com.android.systemui.qs.dagger.QSFragmentModule.QS_FOOTER;
 
@@ -324,8 +326,8 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
 
                     // Icons
                     translateContent(
-                            quickTileView.getIconWithBackground(),
-                            tileView.getIconWithBackground(),
+                            isRoundQS() ? quickTileView.getIconWithBackground() : quickTileView.getIcon(),
+                            isRoundQS() ? tileView.getIconWithBackground() : tileView.getIcon(),
                             view,
                             xOffset,
                             yOffset,
@@ -358,11 +360,11 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                             translationYBuilder
                     );
 
-                    firstPageBuilder.addFloat(quickTileView.getLabelContainer(), "alpha", 0, 1);
+                    firstPageBuilder.addFloat(isRoundQS() ? quickTileView.getLabelContainer() : quickTileView.getSecondaryLabel(), "alpha", 0, 1);
 
                     mAnimatedQsViews.add(tileView);
                     mAllViews.add(quickTileView);
-                    mAllViews.add(quickTileView.getLabelContainer());
+                    mAllViews.add(isRoundQS() ? quickTileView.getLabelContainer() : quickTileView.getSecondaryLabel());
                 } else if (mFullRows && isIconInAnimatedRow(count)) {
 
                     firstPageBuilder.addFloat(tileView, "translationY", -heightDiff, 0);
@@ -385,8 +387,8 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                     mOtherTilesExpandAnimator.addView(tileView);
                     tileView.setClipChildren(true);
                     tileView.setClipToPadding(true);
-                    firstPageBuilder.addFloat(tileView.getLabelContainer(), "alpha", 0, 1);
-                    mAllViews.add(tileView.getLabelContainer());
+                    firstPageBuilder.addFloat(isRoundQS() ? tileView.getLabelContainer() : tileView.getSecondaryLabel(), "alpha", 0, 1);
+                    mAllViews.add(isRoundQS() ? tileView.getLabelContainer() : tileView.getSecondaryLabel());
                 }
 
                 mAllViews.add(tileView);

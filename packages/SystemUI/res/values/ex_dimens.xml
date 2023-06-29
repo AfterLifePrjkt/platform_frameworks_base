@@ -134,4 +134,9 @@
     <dimen name="side_img">-15dp</dimen>
     <dimen name="ancient_header_small">80dp</dimen>
     <dimen name="ancient_header_big">200dp</dimen>
+
+    <!-- QS Paddings -->
+    <dimen name="custom_qs_panel_padding_top">0dp</dimen>
+    <dimen name="custom_notification_row_padding">16dp</dimen>
+    <dimen name="custom_qs_tile_label_line_height">20sp</dimen>
 </resources>

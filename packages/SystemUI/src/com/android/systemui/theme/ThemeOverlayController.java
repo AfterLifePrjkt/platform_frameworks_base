@@ -27,6 +27,9 @@ import static com.android.systemui.theme.ThemeOverlayApplier.OVERLAY_COLOR_SOURC
 import static com.android.systemui.theme.ThemeOverlayApplier.TIMESTAMP_FIELD;
 
 import android.annotation.Nullable;
+import static com.android.systemui.util.qs.QSStyleUtils.QS_STYLE_ROUND_OVERLAY;
+import static com.android.systemui.util.qs.QSStyleUtils.isRoundQSSetting;
+import static com.android.systemui.util.qs.QSStyleUtils.setRoundQS;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.app.WallpaperManager.OnColorsChangedListener;
@@ -467,6 +470,25 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                                         Settings.Secure.QS_PANEL_STYLE, 0,
                                         UserHandle.USER_CURRENT);
                         mThemeManager.setqsPanelStyle(qsPanelStyle);
+                    }
+                },
+                UserHandle.USER_ALL);
+
+            boolean isRoundQS = isRoundQSSetting(mContext);
+        setRoundQS(isRoundQS);
+        mThemeManager.enableOverlay(QS_STYLE_ROUND_OVERLAY, isRoundQS);
+        mSecureSettings.registerContentObserverForUser(
+                Settings.Secure.getUriFor(Settings.Secure.QS_STYLE_ROUND),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        boolean isRoundQS = isRoundQSSetting(mContext);
+                        setRoundQS(isRoundQS);
+                        mThemeManager.enableOverlay(QS_STYLE_ROUND_OVERLAY, isRoundQS);
+
+                        reevaluateSystemTheme(true /* forceReload */);
                     }
                 },
                 UserHandle.USER_ALL);
