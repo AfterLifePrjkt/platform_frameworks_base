@@ -111,6 +111,9 @@ public class ThemeOverlayApplier implements Dumpable {
     @VisibleForTesting
     static final String OVERLAY_QS_PANEL =
             "com.android.systemui.qs_panel";
+    @VisibleForTesting
+    static final String OVERLAY_QS_PANEL_O =
+            "com.android.systemui.qs_panel_outline";
     /*
      * All theme customization categories used by the system, in order that they should be applied,
      * starts with launcher and grouped by target package.
@@ -141,7 +144,8 @@ public class ThemeOverlayApplier implements Dumpable {
      /* Qs panel TwoTone overlays */
     static final List<String> QS_PANEL_OVERLAYS = Lists.newArrayList(
             "",
-            OVERLAY_QS_PANEL);
+            OVERLAY_QS_PANEL,
+            OVERLAY_QS_PANEL_O);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
